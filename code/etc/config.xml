@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Ash Disablecart Extension
+ *
+ * Enables read-only catalog maintenance mode.
+ *
+ * @category    Ash
+ * @package     Ash_Disablecart
+ * @copyright   Copyright (c) 2014 August Ash, Inc. (http://www.augustash.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Ash_Disablecart>
+             <version>1.0.0</version>
+             <ashup
+                remote="https://s3.amazonaws.com/augustash/mage/ash_disablecart-latest.zip" />
+        </Ash_Disablecart>
+    </modules>
+
+    <global>
+        <helpers>
+            <ash_disablecart>
+                <class>Ash_Disablecart_Helper</class>
+            </ash_disablecart>
+        </helpers>
+        <blocks>
+            <ash_disablecart>
+                <class>Ash_Disablecart_Block</class>
+            </ash_disablecart>
+            <page>
+                <rewrite>
+                    <!-- Override Mage_Page_Block_Template_Links -->
+                    <template_links>Ash_Disablecart_Block_Template_Links</template_links>
+                </rewrite>
+            </page>
+        </blocks>
+        <models>
+            <ash_disablecart>
+                <class>Ash_Disablecart_Model</class>
+            </ash_disablecart>
+        </models>
+        <resources>
+            <ash_disablecart_setup>
+                <setup>
+                    <module>Ash_Disablecart</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </ash_disablecart_setup>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Ash_Disablecart>
+                    <files>
+                        <default>Ash_Disablecart.csv</default>
+                    </files>
+                </Ash_Disablecart>
+            </modules>
+        </translate>
+        <events>
+            <admin_system_config_changed_section_ash_disablecart>
+                <observers>
+                    <ash_disablecart_onepage_checkout>
+                        <class>ash_disablecart/observer</class>
+                        <method>disableOnepageCheckout</method>
+                    </ash_disablecart_onepage_checkout>
+                </observers>
+            </admin_system_config_changed_section_ash_disablecart>
+        </events>
+    </adminhtml>
+
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <Ash_Disablecart before="Mage_Customer">Ash_Disablecart</Ash_Disablecart>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+        <events>
+            <controller_action_layout_render_before>
+                <observers>
+                    <ash_disablecart_add_message>
+                        <class>ash_disablecart/observer</class>
+                        <method>displayMaintenanceMessage</method>
+                    </ash_disablecart_add_message>
+                </observers>
+            </controller_action_layout_render_before>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <ash_disablecart_disable_addtocart>
+                        <class>ash_disablecart/observer</class>
+                        <method>disableAddToCart</method>
+                    </ash_disablecart_disable_addtocart>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>
+    </frontend>
+
+    <default>
+        <ash_disablecart>
+            <general>
+                <message_block>disabled-cart</message_block>
+            </general>
+        </ash_disablecart>
+    </default>
+
+</config>
