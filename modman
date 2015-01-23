@@ -1,5 +1,5 @@
 # Ash_Disablecart Mappings
 
 Ash_Disablecart.xml   app/etc/modules/Ash_Disablecart.xml
-code                  app/code/local/Ash/Disablecart/
+code                  app/code/community/Ash/Disablecart/
 locale/*              app/locale/en_US/

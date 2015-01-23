@@ -1,8 +1,3 @@
-Title:  Ash_Disablecart Extension
-Author: Peter McWilliams
-Email:  core@augustash.com
-Date:   July 23, 2014
-
 # Description
 
 Enables read-only catalog maintenance mode.
@@ -14,5 +9,5 @@ Installation
 2. Delete all contents of the Magento cache
 
 ```
-@copyright  Copyright (c) 2014 August Ash, Inc. (http://www.augustash.com)
+@copyright  Copyright (c) 2015 August Ash, Inc. (http://www.augustash.com)
 ```
