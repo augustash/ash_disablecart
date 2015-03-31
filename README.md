@@ -1,13 +1,16 @@
-# Description
+Description
+-----------
 
 Enables read-only catalog maintenance mode.
 
 Installation
+============
+
+* Install the extension via [Composer](https://getcomposer.org/)
+* Install the extension via [modman](https://github.com/colinmollenhour/modman)
+* You can also [download from Github](https://github.com/augustash/ash_disablecart/archive/master.zip) and unzip the archive in your project root
+
+Dependencies
 ------------
 
-1. Clone module with [modman](https://github.com/colinmollenhour/modman)
-2. Delete all contents of the Magento cache
-
-```
-@copyright  Copyright (c) 2015 August Ash, Inc. (http://www.augustash.com)
-```
+* [Ash_Core](https://github.com/augustash/ash_core)
