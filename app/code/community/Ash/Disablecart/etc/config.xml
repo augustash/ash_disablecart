@@ -14,9 +14,7 @@
 <config>
     <modules>
         <Ash_Disablecart>
-             <version>1.1.0</version>
-             <ashup
-                remote="https://s3.amazonaws.com/augustash/mage/ash_disablecart-latest.zip" />
+             <version>1.2.0</version>
         </Ash_Disablecart>
     </modules>
 
@@ -111,5 +109,4 @@
             </general>
         </ash_disablecart>
     </default>
-
 </config>
